@@ -1,0 +1,34 @@
+model: cifar10_conv2    # [model1, model2, model3, mnist_conv, cifar10_conv1, cifar10_conv2]
+dataset: cifar10        # [cifar10, mnist]
+rootSavePath: "./outputs"
+
+sparsity: # Hyperparams for SparsityModel
+  sparsity_function: tanh # [sigmoid, tanh]
+  beta: 20
+  Omax: 1
+  Imax: 100
+  cin: 0.5
+  cmin: 0
+  cmax: 1
+  mu: 0.9
+  epsilon: 0.9
+  epsilon_iter: 0.01
+
+evaluate:
+  functions: [sigmoid, tanh]
+  betas: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+  savePath: "evaluates"
+  plotGraph: True
+  testDataRange: 0 # index of the dataset. if 'random', then random image of the dataset will be used. Will update to use a path of the image in the future if no dataset is provided.
+  target: 
+  # useSaved: ["outputs/dec_in_sigmoid_at_sp.tfrecord", "outputs/dec_in_tanh_at_sp.tfrecord"] # should aligned with 'functions'
+  savePath: "outputs/"
+  saveName: "decreaseInActivationSparsity"
+
+# generate:
+#   savePath: "adverse"
+#   target: "test" # if dataset is divided into train or test
+#   range: 0 # Range of the dataset to use.
+
+# misc:
+#   tag: [""]

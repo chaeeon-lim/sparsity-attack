@@ -1,3 +1,14 @@
-
-
 This repository is evaluation program for `Sparsity Turns Adversarial- Energy and Latency Attacks on Deep Neural Networks` paper.
+
+
+## Getting started
+
+Run program
+
+    $ python main.py
+
+Use specific configuration
+
+    $ python main.py -c {config file path}
+
+    e.g.) $ python main.py -c config/cifar10_conv2.yml

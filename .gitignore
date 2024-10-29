@@ -1,0 +1,25 @@
+# Build and installation files
+build/
+dist/
+egg-info/
+*.pyc
+__pycache__/
+
+# TensorFlow-specific files
+.tfmodels/
+.tfconfig
+
+# Other files and directories
+.env
+.DS_Store
+venv/ or env/
+
+# Temporary files
+*.tmp
+*.log
+
+# Customs
+.python-version
+./*.png
+outputs
+*.tfrecord
