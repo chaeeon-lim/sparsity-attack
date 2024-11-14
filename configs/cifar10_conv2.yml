@@ -1,4 +1,4 @@
-model: cifar10_conv2    # [model1, model2, model3, mnist_conv, cifar10_conv1, cifar10_conv2]
+baseModel: "./outputs/cifar10_conv2d_allconv.h5"    # [model1, model2, model3, mnist_conv, cifar10_conv1, cifar10_conv2]
 dataset: cifar10        # [cifar10, mnist]
 rootSavePath: "./outputs"
 
@@ -15,11 +15,11 @@ sparsity: # Hyperparams for SparsityModel
   epsilon_iter: 0.01
 
 evaluate:
-  functions: [sigmoid, tanh]
+  functions: tanh # [sigmoid, tanh]
   betas: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
   savePath: "evaluates"
   plotGraph: True
-  testDataRange: 0 # index of the dataset. if 'random', then random image of the dataset will be used. Will update to use a path of the image in the future if no dataset is provided.
+  testDataRange: 0:5 # index of the dataset. if 'random', then random image of the dataset will be used. Will update to use a path of the image in the future if no dataset is provided.
   target: 
   # useSaved: ["outputs/dec_in_sigmoid_at_sp.tfrecord", "outputs/dec_in_tanh_at_sp.tfrecord"] # should aligned with 'functions'
   savePath: "outputs/"
