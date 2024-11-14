@@ -1,3 +1,4 @@
+import pathlib
 from tensorflow.keras import layers, models
 from tensorflow.keras.optimizers import Adam
 
@@ -125,6 +126,8 @@ def get_model(modelName: str):
         return Cifar10_Conv1()
     elif modelName == 'cifar10_conv2':
         return Cifar10_Conv2()
+    elif pathlib.Path(modelName).exists():
+        return models.load_model(modelName)
     else:
         raise ValueError(f'modelName is not supported: {modelName}')
     
